@@ -11,7 +11,6 @@ public interface CategoryMapper {
             @Mapping(source = "idCategory", target = "categoryId"),
             @Mapping(source = "description", target = "category"),
             @Mapping(source = "status", target = "active")
-
     })
     CategoryD toCategoryD(Category category);
 
