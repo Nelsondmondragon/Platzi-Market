@@ -24,7 +24,7 @@ public class Product {
     @Column(name = "codigo_barras")
     private String barCode;
 
-    @Column(name = "precio_ventas")
+    @Column(name = "precio_venta")
     private Double priceSale;
 
     @Column(name = "cantidad_stock")
@@ -37,7 +37,5 @@ public class Product {
     @JoinColumn(name = "id_categoria", insertable = false, updatable = false)
     private Category category;
 
-    @OneToMany(mappedBy = "purchase")
-    private List<Purchase> purchases;
 
 }

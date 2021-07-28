@@ -1,6 +1,6 @@
 package com.platzi.market.domain.service;
 
-import com.platzi.market.domain.ProductD;
+import com.platzi.market.domain.ProductDTO;
 import com.platzi.market.domain.repository.ProductDRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,19 +14,19 @@ public class ProductDService {
     @Autowired
     private ProductDRepository productDRepository;
 
-    public List<ProductD> getAll() {
+    public List<ProductDTO> getAll() {
         return productDRepository.getAll();
     }
 
-    public Optional<ProductD> getProductD(int productDId) {
+    public Optional<ProductDTO> getProductD(int productDId) {
         return productDRepository.getProductD(productDId);
     }
 
-    public Optional<List<ProductD>> getByCategoryD(int categoryDId) {
+    public Optional<List<ProductDTO>> getByCategoryD(int categoryDId) {
         return productDRepository.getByCategoryD(categoryDId);
     }
 
-    public ProductD save(ProductD productD) {
+    public ProductDTO save(ProductDTO productD) {
         return productDRepository.save(productD);
     }
 

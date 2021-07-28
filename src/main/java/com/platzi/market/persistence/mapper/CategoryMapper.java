@@ -8,9 +8,9 @@ import org.mapstruct.*;
 public interface CategoryMapper {
 
     @Mappings({
-            @Mapping(source = "idCategory", target = "categoryId"),
-            @Mapping(source = "description", target = "category"),
-            @Mapping(source = "status", target = "active")
+            @Mapping(source = "idCategory", target = "idCategoryDTO"),
+            @Mapping(source = "description", target = "descriptionDTO"),
+            @Mapping(source = "status", target = "activeDTO")
     })
     CategoryD toCategoryD(Category category);
 

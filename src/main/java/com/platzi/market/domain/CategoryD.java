@@ -4,7 +4,8 @@ import lombok.Data;
 
 @Data
 public class CategoryD {
-    private int categoryId;
-    private String category;
-    private boolean active;
+    private int idCategoryDTO;
+    private String descriptionDTO;
+    private boolean activeDTO;
+
 }
