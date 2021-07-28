@@ -28,7 +28,7 @@ public class Product {
     private Double priceSale;
 
     @Column(name = "cantidad_stock")
-    private Integer quantityStock;
+    private int quantityStock;
 
     @Column(name = "estado")
     private boolean status;

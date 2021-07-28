@@ -1,6 +1,6 @@
 package com.platzi.market.persistence.mapper;
 
-import com.platzi.market.domain.CategoryD;
+import com.platzi.market.domain.CategoryDto;
 import com.platzi.market.persistence.entity.Category;
 import org.mapstruct.*;
 
@@ -8,14 +8,14 @@ import org.mapstruct.*;
 public interface CategoryMapper {
 
     @Mappings({
-            @Mapping(source = "idCategory", target = "idCategoryDTO"),
-            @Mapping(source = "description", target = "descriptionDTO"),
-            @Mapping(source = "status", target = "activeDTO")
+            @Mapping(source = "idCategory", target = "idCategoryDto"),
+            @Mapping(source = "description", target = "descriptionDto"),
+            @Mapping(source = "status", target = "activeDto")
     })
-    CategoryD toCategoryD(Category category);
+    CategoryDto toCategoryD(Category category);
 
 
     @InheritInverseConfiguration
     @Mapping(target = "products", ignore = true)
-    Category toCategory(CategoryD categoryD);
+    Category toCategory(CategoryDto categoryDto);
 }

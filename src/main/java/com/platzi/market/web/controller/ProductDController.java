@@ -1,14 +1,13 @@
 package com.platzi.market.web.controller;
 
-import com.platzi.market.domain.ProductDTO;
+import com.platzi.market.domain.ProductDto;
 import com.platzi.market.domain.service.ProductDService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/products")
@@ -18,23 +17,32 @@ public class ProductDController {
     private ProductDService productDService;
 
     @GetMapping("/all")
-    public List<ProductDTO> getAll() {
-        return productDService.getAll();
+    public ResponseEntity<List<ProductDto>> getAll() {
+
+        return new ResponseEntity<>(productDService.getAll(), HttpStatus.OK);
     }
 
-    public Optional<ProductDTO> getProductD(int productId) {
-        return productDService.getProductD(productId);
+    @GetMapping("/{id}")
+    public ResponseEntity<ProductDto> getProductD(@PathVariable("id") int productId) {
+        return productDService.getProductD(productId)
+                .map(productDTO -> new ResponseEntity<>(productDTO,HttpStatus.OK))
+                .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    public Optional<List<ProductDTO>> getByCategoryD(int categoryId) {
-        return productDService.getByCategoryD(categoryId);
+    @GetMapping("/categoryD/{categoryId}")
+    public ResponseEntity<List<ProductDto>> getByCategoryD(@PathVariable("categoryId") int categoryId) {
+        return productDService.getByCategoryD(categoryId)
+                .map(productDTOS -> new ResponseEntity<>(productDTOS, HttpStatus.OK))
+                .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    public ProductDTO save(ProductDTO productD) {
-        return productDService.save(productD);
+    @PostMapping("/save")
+    public ResponseEntity<ProductDto> save(@RequestBody ProductDto productD) {
+        return new ResponseEntity<>(productDService.save(productD), HttpStatus.CREATED);
     }
 
-    public boolean delete(int productDId) {
-        return productDService.delete(productDId);
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity delete(@PathVariable("id") int productDId) {
+        return productDService.delete(productDId)? new ResponseEntity(HttpStatus.OK):new ResponseEntity(HttpStatus.NOT_FOUND);
     }
 }

@@ -1,6 +1,6 @@
 package com.platzi.market.persistence.mapper;
 
-import com.platzi.market.domain.ProductDTO;
+import com.platzi.market.domain.ProductDto;
 import com.platzi.market.persistence.entity.Product;
 import org.mapstruct.*;
 
@@ -10,20 +10,19 @@ import java.util.List;
 public interface ProductMapper {
 
     @Mappings({
-            @Mapping(source = "idProduct", target = "idProductDTO"),
-            @Mapping(source = "name", target = "nameDTO"),
-            @Mapping(source = "idCategory", target = "idCategoryDTO"),
-            @Mapping(source = "priceSale", target = "priceDTO"),
-            @Mapping(source = "quantityStock", target = "stockDTO"),
-            @Mapping(source = "status", target = "activeDTO"),
-            @Mapping(source = "category", target = "categoryDTO")
+            @Mapping(source = "idProduct", target = "idProductDto"),
+            @Mapping(source = "name", target = "nameDto"),
+            @Mapping(source = "idCategory", target = "idCategoryDto"),
+            @Mapping(source = "priceSale", target = "priceDto"),
+            @Mapping(source = "quantityStock", target = "stockDto"),
+            @Mapping(source = "status", target = "activeDto"),
+            @Mapping(source = "category", target = "categoryDto")
     })
-    ProductDTO toProductD(Product product);
-
-    List<ProductDTO> toProductDs(List<Product> products);
+    ProductDto toProductD(Product product);
+    List<ProductDto> toProductDs(List<Product> products);
 
     @InheritInverseConfiguration
     @Mapping(target = "barCode", ignore = true)
-    Product toProduct(ProductDTO productD);
+    Product toProduct(ProductDto productD);
 
 }
