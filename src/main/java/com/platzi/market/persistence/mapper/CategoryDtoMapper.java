@@ -5,7 +5,7 @@ import com.platzi.market.persistence.entity.Category;
 import org.mapstruct.*;
 
 @Mapper(componentModel = "spring")
-public interface CategoryMapper {
+public interface CategoryDtoMapper {
 
     @Mappings({
             @Mapping(source = "idCategory", target = "idCategoryDto"),

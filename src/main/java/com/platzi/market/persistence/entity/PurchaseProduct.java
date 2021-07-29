@@ -12,7 +12,7 @@ public class PurchaseProduct {
     @EmbeddedId
     private PurchaseProductPK id;
 
-    @Column(name = "columna")
+    @Column(name = "cantidad")
     private Integer cant;
 
     private Double total;
@@ -21,6 +21,7 @@ public class PurchaseProduct {
     private Boolean status;
 
     @ManyToOne
+    @MapsId("idPurchase")
     @JoinColumn(name = "id_compra", insertable = false, updatable = false)
     private Purchase purchase;
 

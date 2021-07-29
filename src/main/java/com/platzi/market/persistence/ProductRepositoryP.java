@@ -4,7 +4,7 @@ import com.platzi.market.domain.ProductDto;
 import com.platzi.market.domain.repository.ProductDRepository;
 import com.platzi.market.persistence.crud.ProductCrudRepository;
 import com.platzi.market.persistence.entity.Product;
-import com.platzi.market.persistence.mapper.ProductMapper;
+import com.platzi.market.persistence.mapper.ProductDtoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -18,7 +18,7 @@ public class ProductRepositoryP implements ProductDRepository {
     private ProductCrudRepository productCrudRepository;
 
     @Autowired
-    private ProductMapper mapper;
+    private ProductDtoMapper mapper;
 
     @Override
     public List<ProductDto> getAll() {
