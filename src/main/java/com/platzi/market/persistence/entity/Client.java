@@ -12,12 +12,12 @@ public class Client {
 
     @Id
     @Column(name = "id")
-    private Integer idClient;
+    private String idClient;
 
     @Column(name = "nombre")
     private String name;
 
-    @Column(name = "apellido")
+    @Column(name = "apellidos")
     private String surName;
 
     @Column(name = "celular")

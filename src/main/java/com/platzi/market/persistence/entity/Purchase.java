@@ -18,7 +18,7 @@ public class Purchase {
     private Integer idPurchase;
 
     @Column(name = "id_cliente")
-    private Integer idClient;
+    private String idClient;
 
     @Column(name = "fecha")
     private LocalDateTime date;
@@ -30,7 +30,7 @@ public class Purchase {
     private String commentary;
 
     @Column(name = "estado")
-    private Boolean status;
+    private String status;
 
     @ManyToOne
     @JoinColumn(name = "id_cliente", insertable = false, updatable = false)
